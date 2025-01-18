@@ -17,7 +17,7 @@ h2 {
 }
 .hero-slider {
   width: 100%;
-  height: 700px;
+  height: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,7 +130,7 @@ h2 {
 	#hero-style
 --------------------------------------------------------------*/
 .hero-style {
-  height: 850px;
+  height: 780px;
   transition:all .4s ease;
 }
 
@@ -149,36 +149,34 @@ h2 {
 .hero-style .slide-title,
 .hero-style .slide-text,
 .hero-style .slide-btns {
-  max-width: 690px;
+  max-width: 750px;
 }
 
 .hero-style .slide-title h2 {
-  font-size: 60px;
+  font-size: 52px;
+  margin: 0 0 20px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
   color: #ffffff;
-  margin: 0 0 40px;
   text-transform: capitalize;
   transition:all .4s ease;
 }
 
 @media (max-width: 1199px) {
   .hero-style .slide-title h2 {
-    font-size: 55px;
+    font-size: 50px;
   }
 }
 
 @media (max-width: 991px) {
   .hero-style .slide-title h2 {
     font-size: 40px;
-    margin: 0 0 35px;
   }
 }
 
 @media (max-width: 767px) {
   .hero-style .slide-title h2 {
-    font-size: 35px;
-    margin: 0 0 30px;
+    font-size: 32px;
   }
 }
 
@@ -188,7 +186,7 @@ h2 {
   line-height: 1.25;
   letter-spacing: normal;
   color: #ffffff;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
   transition:all .4s ease;
 }
 
@@ -216,9 +214,10 @@ h2 {
   line-height: 1.4;
   text-align: center;
   color:#2b3b95;
-    padding: 9px 32px;
+    padding: 15px 32px;
     border: 0; 
   border-radius: 10px;
+  border:2px solid #003049;
     display: inline-block;
     line-height: initial;
   transition:all .4s ease;
@@ -260,9 +259,9 @@ a:hover {
       {% for slider in hero_sections %}
       <div class="swiper-slide">
         <div class="slide-inner slide-bg-image" data-background="{{ slider.image.url }}">
-          <div class="container">
+          <div class="container px-4 md:px-0">
             <div data-swiper-parallax="300" class="slide-title">
-              <h2>{{ slider.title }}</h2>
+              <h2 class="font-title">{{ slider.title }}</h2>
             </div>
             <div data-swiper-parallax="400" class="slide-text">
               <p>{{ slider.description }}</p>
@@ -281,7 +280,7 @@ a:hover {
     <!-- end swiper-wrapper -->
 
     <!-- swipper controls -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination px-4 md:px-0"></div>
   </div>
 </section>
 <!-- end of hero slider -->

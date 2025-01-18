@@ -14,6 +14,9 @@ module.exports = {
           DEFAULT: '#F77F00', // Default shade
           light:'#F18701'
         },
+        body: {
+          DEFAULT: '#4E4E4E', // Default shade
+        },
       },
       fontFamily: {
         title: ['Krub', 'sans-serif'],  // Title font (Figtree)
