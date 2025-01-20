@@ -4,7 +4,7 @@ from django.db import models
 
 class Brand(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
-    url = models.CharField(max_length=1000, blank=True, null=True)
+    googlemap_url = models.CharField(max_length=1000, blank=True, null=True)
     logo = models.ImageField(upload_to='sitesettings/', null=True, blank=True)
     fevicon = models.ImageField(upload_to='sitesettings/', null=True, blank=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
