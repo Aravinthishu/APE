@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home - My Django Project{% endblock %}
+{% block title %}Home{% endblock %}
     <!-- Include Splide.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Splide/3.6.3/splide.min.css">
+
 
 {% block content %}
 {% include 'includes/hero.html' %}
 {% include 'includes/about.html' %}
+{% comment %} {% include 'includes/trademark.html' %} {% endcomment %}
+{% include 'includes/services.html' %}
+{% include 'includes/Category.html' %}
+{% include 'includes/Logo.html' %}
+{% include 'includes/Why-us.html' %}
+{% include 'includes/Awards.html' %}
+
 {% endblock %}
+

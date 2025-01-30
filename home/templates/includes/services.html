@@ -1,0 +1,51 @@
+{% load static %}
+<section class="font-title mt-20 px-4  md:px-4 2xl:px-0" >
+    <div class="max-w-screen-xl mx-auto">
+        <div class="">
+            <h4 class="text-xl text-secondary font-semibold">Services</h4>
+            <h2 class="text-3xl mt-5 text-primary font-semibold md:text-3xl lg:text-4xl xl:text-5xl">Explore Our Services</h2>
+            <div class="text-secondary font-semibold text-base text-end flex gap-2 flex-end items-center justify-end"><a href="#"><p>View All</p></a><i class='fas fa-arrow-right '></i></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4  gap-4 mt-6  justify-between">
+            {% for item in services %}
+            <div class="zoom-in relative insuraceCard w-full h-auto flex  flex-col items-stretch bg-cover bg-center bg-[#F4F5F9] bg-no-repeat group p-6 hover:bg-blend-overlay hover:bg-gray-700 transition-all duration-500 ease-in-out" data-bg="{{ item.image.url }}">
+                <div class="h-1/2 bg-gray-400 z-40 top-1/4 left-0 w-1.5 absolute group-hover:h-full group-hover:top-0 group-hover:bg-secondary transition-all duration-500 ease-in-out"></div>
+                <div class="flex flex-row justify-between items-center">
+                    <h3 class="text-xl font-bold tracking-wide font-title group-hover:text-white text-primary mb-2 transition-all duration-500 ease-in-out">{{ item.title }}</h3>
+                    <div class="">
+                        <p class="text-stroke text-white text-5xl font-extrabold tracking-wide transition-all duration-500 ease-in-out">0{{ forloop.counter }}</p>
+                    </div>
+                </div>
+                <p class="text-base leading-normal text-body mt-6 group-hover:text-white transition-all duration-500 ease-in-out">{{ item.description |slice:":100" }}...</p>
+                <div class="flex flex-row justify-between items-center mt-6">
+                    <a href="#" class="text-white hover:text-white transition duration-300 ease-in-out">
+                        <button class="bg-secondary hover:bg-primary text-base font-title tracking-wider text-white font-semibold py-2 px-6 rounded-sm transition">
+                            Read More
+                        </button>
+                    </a>
+                    <img class="w-12 ml-4 transition duration-500 ease-in-out" src="{{item.icon.url}}" alt="hero image">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    const insuranceCards = document.querySelectorAll('.insuraceCard');
+    insuranceCards.forEach((card) => {
+        // Store the original background color or style
+        const originalBgColor = card.style.backgroundColor;
+
+        // Set the background image on hover
+        card.addEventListener('mouseenter', () => {
+            card.style.backgroundImage = `url(${card.dataset.bg})`;
+        });
+
+        // Revert to original style when mouse leaves
+        card.addEventListener('mouseleave', () => {
+            card.style.backgroundImage = ''; // Remove the background image on hover out
+            card.style.backgroundColor = originalBgColor; // Optional: revert background color if desired
+        });
+    });
+</script>

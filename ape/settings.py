@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'ckeditor',
+
     'home',
     'site_settings',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -135,10 +139,52 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # Path to store media files
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER ='aravintharavinth6369@gmail.com'
+EMAIL_HOST_PASSWORD ='qdqy zgpv lymv kbnm'
+EMAIL_HOST_USER_NANE='SIPY'
+ADMIN_EMAIL = 'hello@sipy.in'
+
+
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'toolbar_Full': [
+            ['Styles', 'Format', 'Font', 'FontSize'],  # Text styling
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],  # Text formatting
+            ['TextColor', 'BGColor'],  # Text and background colors
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],  # Lists and indentation
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],  # Text alignment
+            ['Link', 'Unlink', 'Anchor'],  # Hyperlink management
+            ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],  # Media and layout
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],  # Clipboard functionality
+            ['Undo', 'Redo'],  # Undo and redo
+            ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'],  # Editing tools
+            ['RemoveFormat', 'Source'],  # Code and cleanup
+            ['Maximize', 'ShowBlocks', '-', 'About'],  # View options
+            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'HiddenField'],  # Form elements
+        ],
+        'extraPlugins': ','.join([
+            'colorbutton', 'justify', 'clipboard', 'table', 'image2', 'uploadimage',  # Additional plugins
+        ]),
+        'removePlugins': 'elementspath',  # Optional: Removes the element path bar
+        'resize_enabled': True,  # Allows resizing of the editor window
+    }
+}
+
+
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
 JAZZMIN_SETTINGS = {
     "site_title": "APE",  # Title of the admin site
     "site_header": "My Admin",  # Header displayed on the admin site
-    "site_brand": "Aakash power engineering",  # Brand name displayed in the admin
+    "site_brand": "Website",  # Brand name displayed in the admin
     "welcome_sign": "Welcome to the Admin Panel!",  # Welcome message
     "show_ui_builder": True,  # Show UI builder for customization
     "changeform_format": "horizontal",  # Form layout (options: 'vertical', 'horizontal')
@@ -150,5 +196,8 @@ JAZZMIN_SETTINGS = {
         "auth.Group": "fas fa-users",
         "site_settings.Brand": "fas fa-cogs",  # Custom icon for MyModel in your app
         "site_settings.Social_links": "fas fa-link",
+        "home.HeroSection": "fas fa-home",
+        "home.Service": "fas fa-hands-helping",
+        "home.Awards": "fas fa-trophy",
     },
 }

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+<section class="font-title px-4 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-80 " style = "background-image: url({% static 'images/category-hero.jpg' %});">
+    <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3">
+       <h3 class=" text-white font-medium text-sm  md:text-base text-case">Products/Categories</h3>
+       <h1 class=" text-white text-2xl font-bold md:text-4xl ">All Categories</h1>
+    </div>
+</section>
+
+<section class="font-title px-4 md:px-4 2xl:px-0 mt-20">
+    <div class="max-w-screen-xl mx-auto">
+        <h2 class=" text-primary text-3xl font-bold">All Categories</h2>
+        <div class=" flex flex-col md:flex-row gap-6 mt-6 ">
+            {% for item in categories %}
+                <div class="bg-white rounded-lg border border-gray-200 p-4 transition-all duration-300 cursor-pointer hover:border-secondary group">
+                    <div class="flex flex-col md:flex-row justify-start gap-6 items-center">
+                        <div class="">
+                            <img class="w-full rounded-lg" src="{{ item.image.url }}" alt="award">
+                        </div>
+                    </div>
+                    <h4 class="text-primary text-lg font-semibold mt-4 lowercase">{{ item.name }}</h4>
+                    <a href="{% url 'products:category_view' item.slug %}"><button class="w-full p-2 bg-primary mt-4 hover:bg-secondary text-white rounded-lg">View Product</button></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

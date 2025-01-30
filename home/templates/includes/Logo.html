@@ -1,0 +1,58 @@
+{% load static %}
+
+<!-- Swiper Container -->
+<section class="font-title mt-20 px-4 md:px-4 2xl:px-0 overflow-hidden">
+    <div class="swiper-container-logo overflow-hidden">
+        <div class="swiper-wrapper">
+            {% for logo in logos %}
+            <div class="swiper-slide flex justify-center items-center">
+                <div class="bg-white shadow-md border border-gray-200 rounded-lg p-4 flex justify-center items-center w-full max-w-[200px] h-[100px]">
+                    <img src="{{ logo.image.url }}" alt="logo" class="object-contain w-full h-full">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+/* Ensure all logos fit properly and look consistent */
+.swiper-slide img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".swiper-container-logo", {
+        slidesPerView: 2, // Default for larger screens
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2, // For small screens
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 3, // For medium screens
+                spaceBetween: 15,
+            },
+            1024: {
+                slidesPerView: 5, // For larger screens
+                spaceBetween: 20,
+            },
+            1440: {
+                slidesPerView: 7, // For extra-large screens
+                spaceBetween: 20,
+            },
+        },
+    });
+});
+</script>

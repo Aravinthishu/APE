@@ -1,0 +1,95 @@
+{% load static %}
+
+<section class="font-title mt-20 px-4 md:px-4 2xl:px-0">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-6 ">
+        <!-- Receive Box - 25% Width -->
+        <div 
+            class="w-full md:w-1/4 slide-right p-6 flex justify-center items-center flex-col bg-cover bg-no-repeat relative rounded-lg" 
+            style="background-image: url('{% static 'images/Rectangle.png' %}');">
+            <h3 class="text-white text-xl md:text-lg xl:text-xl font-semibold">
+                <span class="text-secondary text-4xl">Receive</span> a complimentary energy audit with every product or service purchase.
+            </h3>
+            <div class="w-full mt-6">
+                <p class="text-xl font-semibold text-white">
+                    Follow Us:
+                </p>
+                <div class="flex gap-3 mt-3">
+                    {% for social in social_links %}
+                    <a href="{{ social.url }}" target="_blank" class="text-white hover:text-white transition duration-300 ease-in-out">
+                        <img src="{{ social.icon.url }}" alt="{{ social.name }}" class="w-10 h-10">
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Products & Categories - 75% Width -->
+        <div class="w-full md:w-3/4 relative">
+            <div class=" flex gap-6 justify-end absolute right-0 top-0 w-full mt-6">
+                <button class="button-prev-cat bg-white text-secondary  "><i class="fa text-xl fa-arrow-left"></i></button>
+                <button class="button-next-cat bg-white  text-secondary"><i class="fa text-xl fa-arrow-right"></i></button>
+            </div>
+            <h4 class="text-xl text-secondary font-semibold">Categories</h4>
+            <h2 class="text-3xl mt-5 text-primary font-semibold md:text-3xl lg:text-4xl xl:text-5xl">
+                Explore Our Products
+            </h2>
+            
+            <!-- Swiper Container (Display 3 Products on Larger Screens) -->
+            <div class="w-full overflow-hidden mt-6">
+                <div class="swiper-container-category">
+                    <div class="swiper-wrapper">
+                        {% for item in categories %}
+                        <div class="swiper-slide">
+                            <div class="bg-white rounded-lg border border-gray-200 p-4 transition-all duration-300 cursor-pointer hover:border-secondary group">
+                                <div class="flex flex-col md:flex-row justify-start gap-6 items-center">
+                                    <div class="">
+                                        <img class="w-full rounded-lg" src="{{ item.image.url }}" alt="award">
+                                    </div>
+                                </div>
+                                <h4 class="text-primary text-lg font-semibold mt-4 lowercase">{{ item.name }}</h4>
+                                <a href="{% url 'products:category_view' item.slug %}"><button class="w-full p-2 bg-primary mt-4 hover:bg-secondary text-white rounded-lg">View Product</button></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".swiper-container-category", {
+            slidesPerView: 1, // Show 3 products at once on larger screens
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true, // Pause autoplay when hovering over Swiper
+            },
+            navigation: {
+                nextEl: ".button-next-cat",
+                prevEl: ".button-prev-cat",
+            },
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3, // Show 3 products at once on medium screens
+                    spaceBetween: 10, // Space between slides
+                },
+                768: {
+                    slidesPerView: 2, // Show 2 products at once on small screens
+                    spaceBetween: 10,
+                },
+                480: {
+                    slidesPerView: 1, // Show 1 product at once on extra small screens
+                    spaceBetween: 5,
+                },
+            },
+        });
+    });
+</script>
+
+{% endblock %}
