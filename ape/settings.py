@@ -28,9 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
 INSTALLED_APPS = [
     'jazzmin',
     'ckeditor',
@@ -42,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'blog',
+    'services',
     'site_settings',
 ]
 
@@ -67,8 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                
+                'django.contrib.messages.context_processors.messages',               
                 'site_settings.context_processors.site_settings',
             ],
         },
@@ -227,11 +224,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # Path to store media files
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 JAZZMIN_SETTINGS = {
     "site_title": "APE",  # Title of the admin site
     "site_header": "My Admin",  # Header displayed on the admin site
-    "site_brand": "Aakash power engineering",  # Brand name displayed in the admin
+    "site_brand": "project",  # Brand name displayed in the admin
     "welcome_sign": "Welcome to the Admin Panel!",  # Welcome message
     "show_ui_builder": True,  # Show UI builder for customization
     "changeform_format": "horizontal",  # Form layout (options: 'vertical', 'horizontal')

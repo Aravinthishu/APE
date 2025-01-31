@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ posts.title }}
+{% endblock %}
+{% block content %}
+<section class="font-title px-4 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-80" 
+         style="background-image: url({% static 'images/page-title.jpg' %});">
+    <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3">
+        <h3 class="text-white font-medium text-sm md:text-base uppercase">Blog / {{ posts.title }}</h3>
+        <h1 class="text-white text-2xl md:text-4xl font-bold">{{ posts.title }}</h1>
+    </div>
+</section>
+<section class="font-title mt-20 px-4 md:px-4 2xl:px-0">
+    <div class="max-w-screen-xl mx-auto flex flex-col gap-10 md:flex-row justify-start"> 
+        <div class="w-full md:w-3/4">
+            <div class="mb-10 h-[350px] ">
+                <img src="{{ posts.image.url }}" alt="Blog Image" 
+                     class="w-full h-full  object-cover rounded-lg">
+            </div>
+            <div class="mt-10">
+                <h1 class="text-3xl font-bold mb-5">{{ posts.title }}</h1>
+                <div class="bg-white rounded-lg shadow-md p-6 leading-relaxed">
+                    {{ posts.long_desc | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="w-full md:w-1/4">
+        <div class="w-full p-6 border border-gray-200 rounded-lg bg-gray-100">
+            <h3 class="text-primary text-2xl font-bold">Related Posts</h3>
+            {% for item in related_post %}
+            {% if item.slug != posts.slug %}
+             <a href="{% url 'blog:blog_details' item.slug %}">
+            <div class="flex justify-between items-center p-3 mt-6 text-body rounded-lg hover:bg-secondary hover:text-white">
+             <h4 class=" font-medium text-base">{{item.title}}</h4>
+            <i class="fa text-base fa-arrow-right text-right"></i>
+            </div>
+             </a>
+             {% endif %}
+           {% endfor %}
+           </div>
+    </div>
+</div>
+</section>
+{% endblock %}
