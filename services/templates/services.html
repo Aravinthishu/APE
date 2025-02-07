@@ -2,25 +2,55 @@
 {% load static %}
 {% block title %}Services{% endblock %}
 {% block content %}
-<section class="font-title px-4 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-80" 
-         style="background-image: url({% static 'images/page-title.jpg' %});">
-    <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3">
-        <h3 class="text-white font-medium text-sm md:text-base uppercase"> / Services</h3>
-        <h1 class="text-white text-2xl md:text-4xl font-bold">Services</h1>
-    </div>
+<section class="font-title px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0 bg-cover bg-no-repeat w-full h-60 md:h-72 lg:h-80" style="background-image: url({% static 'images/service.png' %});">
+    <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3 text-center md:text-left">
+        <h3 class="text-white font-medium text-xs md:text-sm uppercase">/ Services</h3>
+        <h1 class="text-white text-xl md:text-3xl lg:text-4xl font-bold">Services</h1>
+    </div>                  
 </section>
-<section class="font-title mt-20 px-4 md:px-4 2xl:px-0">
-    <div class="max-w-screen-xl mx-auto flex flex-col gap-6 md:flex-row">
-      <div class="flex flex-col "><p class="mb-10"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    <div class="flex mb-10"><span class="w-1/2">Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text</span><span class='w-1/2'>Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text</span></div>
-    <img src={% static 'images/page-title.jpg' %} alt='' class='mt-12' >
-     <div>
-        <img src={% static 'images/page-title.jpg' %} alt='' class='mt-12' >
-        <div>
-            <h2></h2>
-            <p></p>
+<section class="font-title mt-10 md:mt-16 px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0">
+    <div class="max-w-screen-xl mx-auto flex flex-col gap-6 md:gap-8 lg:gap-12 md:flex-row flex-wrap">
+        <div class="flex flex-col w-full ">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary font-semibold mb-5">
+                We Give the Best Services
+                    </h2>
+            <p class="text-sm md:text-base leading-relaxed">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text since the 1500s...
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 mt-6">
+                <img src="{% static 'images/service2.png' %}" alt="Service Image 1" class="w-full md:w-1/2 rounded-lg shadow-md">
+                <img src="{% static 'images/service3.png' %}" alt="Service Image 2" class="w-full md:w-1/2 rounded-lg shadow-md">
+            </div>
+        </div>        
+        <div class="flex flex-col w-full">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary font-semibold mb-5">
+                Service Quality
+            </h2>
+            <p class="text-sm md:text-base leading-relaxed">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <img src="{% static 'images/page-title.jpg' %}" alt="Quality Image" class="w-full md:w-1/2 rounded-lg shadow-md">
+                <ul class="w-full  space-y-3">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> High Standards generational income</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> Expert Team in career terms</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> Customer Satisfaction in all forms</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> 24/7 Support from our side</li>
+                </ul>
+            </div>
         </div>
-     </div>
+        {% for feature in features %}         
+        <div class="flex flex-row w-1/2 gap-2">
+            <div class="w-full md:w-1/2">
+            <img src="{{feature.image.url}}" alt="Quality Image" class="w-full  rounded-lg shadow-md">
+            </div>
+            <div class="flex flex-col gap-2 w-1/2 p-7 bg-slate-100">             
+                <div class="flex flex-row justify-between "><img src="{{feature.image_icon.url}}" alt="Quality Image" class=" w-16 h-16 "><p>{{feature.id}}</p></div>
+                <h4 class="text-xl text-secondary font-semibold">{{feature.title}}</h4>
+                <p class="text-sm md:text-base leading-relaxed">{{feature.long_desc |safe}}</p>               
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

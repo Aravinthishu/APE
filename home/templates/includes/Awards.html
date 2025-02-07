@@ -1,0 +1,76 @@
+{% load static %}
+
+
+<section class="font-title mt-20 px-4 md:px-4 2xl:px-0">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-6">
+        <!-- Heading and Navigation Buttons -->
+        <div class="w-full md:w-1/2 slide-right relative">
+            <h4 class="text-xl text-secondary font-semibold">Awards</h4>
+            <h2 class="text-3xl mt-5 text-primary font-semibold md:text-3xl lg:text-4xl xl:text-5xl">
+                Explore Our Awards and Certificates
+            </h2>
+            <!-- Swiper Navigation Buttons -->
+            <div class=" flex gap-6 justify-start w-full mt-6">
+                <button class="button-prev bg-white border border-primary rounded-md text-primary py-2 px-4 "><i class="fa fa-arrow-left"></i></button>
+                <button class="button-next bg-white border border-primary rounded-md text-primary py-2 px-4"><i class="fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Swiper Container -->
+        <div class="w-full md:w-1/2 overflow-hidden slide-left">
+            <div class="swiper-container-award">
+                <div class="swiper-wrapper">
+                    {% for award in awards %}
+                    <div class="swiper-slide">
+                        <div
+                            class="award-box bg-white rounded-lg border border-gray-200 px-6 py-8 transition-all duration-300 cursor-pointer hover:border-secondary group ">
+                            <div class="flex flex-col md:flex-row justify-start gap-6 items-center">
+                                {% if award.category == "Awards" %}
+                                <div class="rounded-full border border-gray-200 p-2 group-hover:bg-secondary">
+                                    <img class="w-12 md:w-10 h-12 md:h-10" src="{% static 'images/award.png' %}" alt="award">
+                                </div>
+                                {% else %}
+                                <div class="rounded-full border border-gray-200 p-2">
+                                    <img class="w-12 md:w-10 h-12 md:h-10" src="{% static 'images/certificate.png' %}" alt="award">
+                                </div>
+                                {% endif %}
+                                <h3 class="text-xl text-primary font-semibold text-center lg:text-start font-title">
+                                    {{ award.category }}<br>
+                                    <span class="text-secondary text-center lg:text-start text-sm font-medium">{{ award.year }}</span>
+                                </h3>
+                            </div>
+                            <p class="text-sm font-medium text-body mt-6 text-center lg:text-start">{{ award.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".swiper-container-award", {
+            slidesPerView: 1, // Default for larger screens
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".button-next",
+                prevEl: ".button-prev",
+            },
+            breakpoints: {
+                // When the screen width is <= 768px
+                1024: {
+                    slidesPerView: 2, // Show only one slide for smaller screens
+                    spaceBetween: 10, // Reduce space between slides
+                },
+            },
+        });
+    });
+</script>
+

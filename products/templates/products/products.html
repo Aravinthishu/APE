@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{product.name}}{% endblock %}
+
+
+{% block content %}
+<section class="font-title px-4 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-80 " style = "background-image: url({% static 'images/category-hero.jpg' %});">
+    <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3">
+       <h3 class=" text-white font-medium text-sm  md:text-base text-case">Products / {{ product.category.name }} / {{product.name}}</h3>
+       <h1 class=" text-white text-2xl font-bold md:text-4xl ">{{ product.name }}</h1>
+    </div>
+</section>
+
+<section class="px-4 md:px-4 2xl:px-0 mt-20 font-body">
+  <div class="font-sans tracking-wide flex flex-col-reverse lg:flex-col gap-8 max-w-screen-xl mx-auto">
+
+      <!-- First Row (Product Details & Variants) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <!-- Left Column: Product Image Gallery -->
+          <div class="lg:col-span-1">
+              <div class="grid sm:grid-cols-3 gap-2 text-center zoom-in">
+                  <div class="sm:col-span-2 bg-gray-100 p-4 flex items-center rounded">
+                      <img src="{{product.image.url}}" alt="Product" class="w-full aspect-[5/4] object-contain object-top" />
+                  </div>
+                  <div class="sm:space-y-2 w-full h-full max-sm:grid max-sm:grid-cols-2 max-sm:gap-2">
+                      <div class="bg-gray-100 p-4 flex items-center rounded w-full h-[140px] sm:h-[200px]">
+                          <img src="{{product.image.url}}" alt="Product" class="w-full max-h-full object-contain object-top" />
+                      </div>
+                      <div class="bg-gray-100 p-4 flex items-center rounded w-full h-[140px] sm:h-[200px]">
+                          <img src="{{product.image.url}}" alt="Product" class="w-full max-h-full object-contain object-top" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Right Column: Product Name, Description, Variants -->
+          <div class="lg:col-span-1">
+              <h2 class="text-xl font-bold text-primary">{{ product.name }}</h2>
+              <p class="text-sm text-body mt-2">{{ product.description | safe }}</p>
+
+              <div class="mt-6">
+                  <h3 class="text-lg font-bold text-gray-800">Choose a Variant</h3>
+                  <div class="flex flex-wrap gap-4 mt-4">
+                      {% for item in product_varient %}
+                          <button type="button" 
+                              class="variant-btn w-12 h-12 font-semibold text-gray-800 text-sm rounded-full flex border-2 items-center justify-center shrink-0 {% if forloop.first %} border-primary {% else %} border-gray-300 {% endif %}"
+                              data-item="{{ item.item }}"
+                              data-rated_capacity="{{ item.rated_capacity }}"
+                              data-factory_model="{{ item.factory_model }}"
+                              data-dimensions="{{ item.dimensions }}"
+                              data-net_weight="{{ item.net_weight }}"
+                              data-packing_size="{{ item.packing_size }}"
+                              data-gross_weight="{{ item.gross_weight }}"
+                              data-productname="{{product.name}}"
+                              data-price="{{item.price}}"
+                              {% if forloop.first %} id="default-variant" {% endif %}
+                          >
+                              {{ item.rated_capacity }}
+                          </button>
+                      {% endfor %}
+                  </div>
+
+                  <div class="mt-4">
+                      <ul class="text-primary font-medium">
+                          <li class="mt-1">Item : <span class="text-body font-mono" id="item">-</span></li>
+                          <li class="mt-1">Rated capacity : <span class="text-body font-mono" id="rated_capacity">-</span></li>
+                          <li class="mt-1">Factory model : <span class="text-body font-mono" id="factory_model">-</span></li>
+                          <li class="mt-1">Dimensions (W*D*H,MM) : <span class="text-body font-mono" id="dimensions">-</span></li>
+                          <li class="mt-1">Net Weight (KG) : <span class="text-body font-mono" id="net_weight">-</span></li>
+                          <li class="mt-1">Packing Size (W*D*H,MM) : <span class="text-body font-mono" id="packing_size">-</span></li>
+                          <li class="mt-1">Gross Weight (KG) : <span class="text-body font-mono" id="gross_weight">-</span></li>
+                          <li class="mt-1">Starting From(Rs) : <span class=" font-medium text-secondary " id="price">-</span></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="flex gap-4 mt-6">
+                  <button type="button" class="w-full px-4 py-3 bg-primary hover:bg-secondary text-white text-sm font-semibold rounded">Inquire Now</button>
+              </div>
+          </div>
+      </div>
+
+      <!-- Second Row (Tabs) -->
+      <div>
+          <!-- Tabs Navigation -->
+          <ul class="flex border-b">
+              <li class="text-gray-800 font-bold text-sm bg-gray-100 py-3 px-8 border-b-2 border-gray-800 cursor-pointer transition-all" id="tab-introduction">
+                  Introduction
+              </li>
+              <li class="text-gray-600 font-bold text-sm hover:bg-gray-100 py-3 px-8 cursor-pointer transition-all" id="tab-datasheet">
+                Data Sheet
+            </li>
+              <li class="text-gray-600 font-bold text-sm hover:bg-gray-100 py-3 px-8 cursor-pointer transition-all" id="tab-advantages">
+                  Advantages
+              </li>
+              <li class="text-gray-600 font-bold text-sm hover:bg-gray-100 py-3 px-8 cursor-pointer transition-all" id="tab-applications">
+                  Applications
+              </li>
+          </ul>
+
+          <!-- Tabs Content -->
+          <div class="mt-8">
+              <div class="tab-content" id="content-introduction">
+                  <div>{{ product.introduction | safe }}</div>
+              </div>
+              <div class="tab-content hidden" id="content-datasheet">
+                <div>{{ product.data_sheet | safe }}</div>
+            </div>
+              <div class="tab-content hidden" id="content-advantages">
+                  <div>{{ product.advantages | safe }}</div>
+              </div>
+              <div class="tab-content hidden" id="content-applications">
+                  <div>{{ product.application | safe }}</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="font-title px-4 py-10 mt-20 md:px-4 2xl:px-0 bg-[#F4F5F9]">
+  <div class="max-w-screen-xl mx-auto relativeoverflow-hidden mt-10">
+    <div class="grid md:grid-cols-2 gap-8 py-8 px-6">
+      <div class=" relative flex justify-center items-center testimonial-circle zoom-in">
+        <!-- Spinning border div -->
+        <div class="rounded-full border-2 w-full h-full border-dashed spinning-circle border-secondary animat-spin p-12">
+            <!-- Inner content that doesn't spin -->
+            <div class="rounded-full w-full h-full relative p-12 bg-blue-100">
+                <div class="rounded-full w-6 h-6 md:w-8 md:h-8 md:first-line:h-8 absolute top-2 md:top-7 bg-[#FF474A]">
+
+                </div>
+                <div class="rounded-full w-6 h-6 md:w-8 md:h-8 absolute bottom-2 md:bottom-7 bg-[#F1C514]">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="rounded-full w-40 h-40 md:w-60 md:h-60 bg-no-repeat bg-cover bg-center absolute"
+        style="background-image: url('{% static 'images/contact-woman.jpg' %}')">
+        </div>
+      </div>
+
+      <form class="rounded-tl-3xl rounded-bl-3xl max-md:-order-1">
+        <div class="max-w-md mx-auto space-y-3 relative">
+          <div class="flex bg-secondary text-white  p-2 rounded">
+            <p class="font-bold ">Subject:</p><span class="" id="subject">
+              -
+            </span>
+          </div>
+          <input type='text' placeholder='Name * ' required
+            class="w-full bg-white rounded-md py-4 px-4 text-sm outline-none focus:bg-transparent transition-all" />
+          <input type='email' placeholder='Email * ' required
+            class="w-full bg-white rounded-md py-4 px-4 text-sm outline-none focus:bg-transparent transition-all" />
+          <input type='email' placeholder='Phone No. * ' required
+            class="w-full bg-whiterounded-md py-4 px-4 text-sm outline-none focus:bg-transparent transition-all" />
+          <textarea placeholder='Message * ' rows="6" required
+            class="w-full bg-white rounded-md px-4 text-sm pt-3 outline-none focus:bg-transparent transition-all"></textarea>
+
+          <button type='submit'
+            class="text-white w-full relative bg-primary hover:bg-secondaryrounded-md text-sm px-6 py-3 !mt-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill='#fff' class="mr-2 inline" viewBox="0 0 548.244 548.244">
+              <path fill-rule="evenodd" d="M392.19 156.054 211.268 281.667 22.032 218.58C8.823 214.168-.076 201.775 0 187.852c.077-13.923 9.078-26.24 22.338-30.498L506.15 1.549c11.5-3.697 24.123-.663 32.666 7.88 8.542 8.543 11.577 21.165 7.879 32.666L390.89 525.906c-4.258 13.26-16.575 22.261-30.498 22.338-13.923.076-26.316-8.823-30.728-22.032l-63.393-190.153z" clip-rule="evenodd" data-original="#000000" />
+            </svg>
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get all tab buttons and content sections
+    const tabs = document.querySelectorAll("[id^='tab-']");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            // Remove active styles from all tabs
+            tabs.forEach(t => {
+                t.classList.remove("text-gray-800", "bg-gray-100", "border-b-2", "border-gray-800");
+                t.classList.add("text-gray-600", "hover:bg-gray-100");
+            });
+
+            // Hide all content sections
+            contents.forEach(content => {
+                content.classList.add("hidden");
+            });
+
+            // Add active styles to clicked tab
+            this.classList.remove("text-gray-600", "hover:bg-gray-100");
+            this.classList.add("text-gray-800", "bg-gray-100", "border-b-2", "border-gray-800");
+
+            // Show related content
+            const contentId = this.id.replace("tab-", "content-");
+            document.getElementById(contentId).classList.remove("hidden");
+        });
+    });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      let buttons = document.querySelectorAll(".variant-btn");
+
+      // Function to update details
+      function updateDetails(button) {
+          document.getElementById("item").textContent = button.dataset.item;
+          document.getElementById("rated_capacity").textContent = button.dataset.rated_capacity;
+          document.getElementById("factory_model").textContent = button.dataset.factory_model;
+          document.getElementById("dimensions").textContent = button.dataset.dimensions;
+          document.getElementById("net_weight").textContent = `${button.dataset.net_weight} kg`;
+          document.getElementById("packing_size").textContent = button.dataset.packing_size;
+          document.getElementById("gross_weight").textContent = `${button.dataset.gross_weight} kg`;
+          document.getElementById("price").textContent = `Rs.${button.dataset.price}`;
+          document.getElementById("subject").textContent = `${button.dataset.productname}-(${button.dataset.factory_model})-${button.dataset.rated_capacity}`;
+          
+          // Remove border-primary class from all buttons
+          buttons.forEach(btn => btn.classList.remove("border-primary"));
+          buttons.forEach(btn => btn.classList.add("border-gray-300"));
+
+          // Add border-primary class to the clicked button
+          button.classList.remove("border-gray-300");
+          button.classList.add("border-primary");
+      }
+
+      // Set initial variant details (first variant)
+      let defaultVariant = document.getElementById("default-variant");
+      if (defaultVariant) {
+          updateDetails(defaultVariant);
+      }
+
+      // Add click event listeners to variant buttons
+      buttons.forEach(button => {
+          button.addEventListener("click", function () {
+              updateDetails(this);
+          });
+      });
+  });
+</script>
+
+{% endblock%}

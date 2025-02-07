@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.text-stroke {
+    -webkit-text-stroke: 1px rgb(231, 231, 231);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+@layer utilities {
+    .animate-scroll {
+        animation: scroll 40s linear infinite;
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(250px * 7));
+    }
+}
+
+@layer utilities {
+    .animate-scroll-left {
+        animation: scroll-left 40s linear infinite;
+    }
+}
+
+@keyframes zoom-in-animation {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.zoom-in {
+    animation: zoom-in-animation linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
+}
+
+@keyframes left-to-right-animation {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-right {
+    animation: left-to-right-animation linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes right-to-left-animation {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-left {
+    animation: right-to-left-animation linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes slide-up-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-up {
+    animation: slide-up-animation linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+
+/* Table */
+
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+/* Table header styling */
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Alternating row colors */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Hover effect for table rows */
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Align numeric columns to the right */
+table td {
+    text-align: center;
+}
+
+/* Special alignment for header cells */
+table td:first-child,
+table th:first-child {
+    text-align: center;
+}
+
+/* Padding for table cells */
+table td,
+table th {
+    padding: 10px;
+}
+
+/* Responsive table styling */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+/* testimonial */
+
+.testimonial-circle {
+    height: 450px;
+    width: 450px;
+}
+
+
+.animat-spin {
+    animation: spin 20s linear infinite;
+
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonial-circle {
+        height: 340px;
+        width: 340px;
+    }
+}
