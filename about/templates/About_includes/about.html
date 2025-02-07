@@ -1,0 +1,23 @@
+{% load static %}
+<section class="font-title mt-20 px-4  md:px-4 2xl:px-0" >
+    <div class="max-w-screen-xl  mx-auto flex flex-col gap-6 lg:flex-row">
+        <div class="w-full lg:w-1/2 slide-right">
+            <h4 class="text-xl text-secondary font-semibold">About Us</h4>
+            <h2 class="text-3xl mt-5 text-primary font-semibold md:text-3xl lg:text-4xl xl:text-5xl">Welcome To Our Website!</h2>
+            <p class="text-body font-medium text-base mt-4 leading-loose">
+                Aakash Power Engineering, established in 2004, is a leading provider of energy solutions specializing in energy auditing, power quality, and advanced energysaving technologies. 
+With over 35 years of experience, we offer a wide range of products, including Active Power Filters, Static Var Generators, Solar Hybrid Inverters, and Energy Storage Systems. 
+Aakash Power provides design, engineering, consultancy, installation, and maintenance services for energy efficiency and sustainability. We deliver high-quality, cost-effective solutions while promoting environmental protection and supporting safety certifications. Our goal is to help businesses reduce energy consumption and contribute to a greener future.
+            </p>
+            <a href="#"><button class="bg-primary px-10 py-4 text-white font-semibold rounded-md mt-6">Read More</button></a>
+        </div>
+        <div class="w-full  flex justify-end lg:w-1/2 slide-left">
+            <div class="w-full lg:w-10/12 relative rounded-lg bg-secondary h-60 lg:h-auto bg-no-repeat bg-cover bg-center" style="background-image: url('{% static 'images/about.png' %}')">
+                <div class="zoom-in absolute border border-white p-6 flex flex-col justify-center items-center shadow-md left-0 bottom-0 rounded-lg w-1/2  h-fit bg-primary">
+                    <img class="w-10 mb-3 md:w-14" src="{% static 'images/about-icon.png' %}" alt="award">
+                    <h4 class="text-xl text-center text-white font-semibold md:text-3xl">30+ Years of Experience</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

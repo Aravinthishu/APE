@@ -19,41 +19,48 @@
                 <li>
                     <a href="{% url 'home:home' %}" 
                        class="block pl-3 pr-4 py-2 md:p-0 
-                              {% if request.path == '/' %}text-secondary border-b border-gray-100{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}" 
+                              {% if request.path == '/' %}text-secondary {% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}" 
                        aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#" 
+                    <a href="{% url 'about:about' %}" 
                        class="block pl-3 pr-4 py-2 md:p-0 
-                              {% if request.path == '/about/' %}text-secondary border-b border-gray-100{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
+                              {% if request.path == '/about/' %}text-secondary{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
                         About Us
                     </a>
                 </li>
                 <li>
                     <a href="#" 
                        class="block pl-3 pr-4 py-2 md:p-0 
-                              {% if request.path == '/services/' %}text-secondary border-b border-gray-100{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
+                              {% if request.path == '/services/' %}text-secondary{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
                         Services
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'products:category' %}" 
                        class="block pl-3 pr-4 py-2 md:p-0 
-                              {% if request.path == '/products/' %}text-secondary border-b border-gray-100{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
+                              {% if request.path == '/products/' %}text-secondary{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
                         Product
                     </a>
                 </li>
                 <li>
-                    <a href="#" 
+                    <a href="{% url 'research:research' %}" 
                        class="block pl-3 pr-4 py-2 md:p-0 
-                              {% if request.path == '/blog/' %}text-secondary border-b border-gray-100{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
-                        Blog
+                              {% if request.path == '/research/' %}text-secondary{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
+                        Research & Development
                     </a>
                 </li>
                 <li>
                     <a href="#" 
                        class="block pl-3 pr-4 py-2 md:p-0 
-                              {% if request.path == '/contact/' %}text-secondary border-b border-gray-100{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
+                              {% if request.path == '/blog/' %}text-secondary{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'contact:contact' %}" 
+                       class="block pl-3 pr-4 py-2 md:p-0 
+                              {% if request.path == '/contact/' %}text-secondary{% else %}text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary{% endif %}">
                         Contact
                     </a>
                 </li>

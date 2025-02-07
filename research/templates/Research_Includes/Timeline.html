@@ -1,0 +1,91 @@
+{% load static %}
+
+<style>
+  .timeline-box:nth-child(odd) .timeline-set {
+    justify-content: flex-start;
+  }
+  .timeline-box:nth-child(even) .timeline-set {
+    justify-content: flex-end;
+  }
+
+  .timeline-box:nth-child(odd) .timeline-item {
+    padding-right:24px;
+  }
+
+  .timeline-box:nth-child(even) .timeline-item {
+    padding-left:24px;
+  }
+
+  .timeline-box:nth-child(even) .timeline-content{
+    flex-direction: row-reverse;
+  }
+
+  #timeline-ball {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: #fff; /* Change to match your theme */
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+    z-index: 10;
+  }
+  
+</style>
+
+<section class="min-h-screen py-6 flex flex-col justify-center mt-20 bg-blue-50 sm:py-12">
+    <h3 class="text-4xl font-semibold text-primary  text-center">Our Journey Towards Now</h3>
+    <p class="text-base text-body leading-loose mb-6 mt-2 text-center font-medium">showcases our evolution, challenges, and achievements, highlighting key moments that shaped our path to success.</p>
+  <div class="py-3 max-w-screen-xl mx-auto w-full px-2 sm:px-0">
+
+    <div class="relative text-gray-700 antialiased text-sm font-semibold">
+      <!-- Vertical bar running through middle -->
+      <div class=" w-2 bg-secondary rounded-r-full rounded-l-full absolute h-full left-1/2 transform -translate-x-1/2"></div>
+      <div id="timeline-ball" class="absolute w-6 h-6 bg-primary rounded-full top-0 left-1/2 transform -translate-x-1/2 shadow-md"></div>
+
+      <!-- Timeline Items -->
+      {% for item in timeline %}
+      <div class="mt-6  mb-16 md:mb-12 timeline-box relative">
+        <div class="flex flex-col sm:flex-row items-center">
+          <div class="timeline-set flex w-full mx-auto items-center">
+            <div class="timeline-item w-full sm:w-1/2 ">
+              <div class="p-4 bg-white text-base flex gap-3 timeline-content rounded-md border border-gray-200">
+                <img class="w-28 h-28 object-cover rounded-md object-center" src="{{ item.image.url }}" alt="award">
+                <div class="flex flex-col justify-center">
+                  <h2 class="text-lg font-bold text-body">
+                    Year <span class="text-secondary">{{ item.year }}</span>
+                  </h2>
+                  {{ item.title }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Dot -->
+          <div class="rounded-full bg-primary border-white border-4  absolute left-1/2 top-0 md:top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
+            <img class="w-8 h-8  object-cover object-center rounded-full" src="{{ item.image.url }}" alt="award">
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const timelineItems = document.querySelectorAll(".timeline-box");
+
+    timelineItems.forEach((item, index) => {
+        if ((index + 1) % 2 === 0) {
+            item.classList.add("slide-left"); // Even items
+        } else {
+            item.classList.add("slide-right"); // Odd items
+        }
+    });
+});
+</script>
+
+
+

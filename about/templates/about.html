@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{product.name}}{% endblock %}
+
+
+{% block content %}
+<section class="font-title px-4 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-80 " style = "background-image: url({% static 'images/category-hero.jpg' %});">
+    <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3">
+       <h3 class=" text-white font-medium text-sm  md:text-base text-case">Driven to Excellence</h3>
+       <h1 class=" text-white text-2xl font-bold md:text-4xl ">About Us</h1>
+    </div>
+</section>
+
+{% include 'About_includes/about.html' %}
+{% include 'About_includes/performance.html' %}
+{% include 'About_includes/video.html' %}
+{% include 'About_includes/why-us.html' %}
+{% include 'About_includes/vision.html' %}
+{% include 'About_includes/whatwedo.html' %}
+{% include 'About_includes/testimonial.html' %}
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load static %}
+<section class="font-title px-4 mt-20 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-[600px] relative overflow-hidden">
+    <!-- Video Element -->
+    <video id="background-video" class="absolute top-0 left-0 w-full h-full object-cover" autoplay muted loop>
+        <source src="{{video.video.url}}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Play/Pause Button -->
+    <button id="video-control" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inset-0 flex items-center justify-center bg-transparent border-2 
+        border-white text-white text-3xl font-bold rounded-full w-24 h-24 hover:bg-black/60 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none">
+        ❚❚
+    </button>
+</section>
+
+<!-- JavaScript for Play/Pause -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("background-video");
+        const controlBtn = document.getElementById("video-control");
+
+        controlBtn.addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+                controlBtn.innerHTML = "❚❚"; // Change to pause icon
+            } else {
+                video.pause();
+                controlBtn.innerHTML = "▶"; // Change to play icon
+            }
+        });
+    });
+</script>
+
+<!-- CSS for hover effect -->
+<style>
+    section:hover #video-control {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>
+
