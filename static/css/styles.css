@@ -16,7 +16,7 @@
 
 @layer utilities {
     .animate-scroll {
-        animation: scroll 40s linear infinite;
+        animation: scroll 30s linear infinite;
     }
 }
 
@@ -28,7 +28,7 @@
 
 @layer utilities {
     .animate-scroll-left {
-        animation: scroll-left 40s linear infinite;
+        animation: scroll-left 30s linear infinite;
     }
 }
 
@@ -46,7 +46,7 @@
 .zoom-in{
     animation: zoom-in-animation linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 30%;
 
 }
 
@@ -64,7 +64,7 @@
 .slide-right {
     animation: left-to-right-animation linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 30%;
 }
 
 @keyframes right-to-left-animation {
@@ -81,7 +81,7 @@
 .slide-left {
     animation: right-to-left-animation linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 30%;
 }
 
 @keyframes slide-up-animation {
@@ -98,7 +98,7 @@
 .slide-up {
     animation: slide-up-animation linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 30%;
 }
 
 
@@ -188,7 +188,7 @@
 
 @media (max-width: 600px) {
     .testimonial-circle {
-        height: 340px;
-        width: 340px;
+        height: 330px;
+        width: 330px;
     }
 }

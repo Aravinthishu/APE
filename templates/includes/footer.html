@@ -37,21 +37,21 @@
             </div>
             <div class="w-full  flex flex-col font-semibold">
                 <h3 class="text-2xl text-white mb-4">Quick Links</h3>
-                <p class="mt-2 text-base  text-white md:mt-3 ">
+                <a href="{% url 'about:about' %}" class="mt-2 text-base  text-white md:mt-3 ">
                     <i class="fa-solid fa-caret-right mr-2 text-secondary"></i>About Us
-                </p>
-                <p class="mt-2 text-base  text-white md:mt-3 ">
+                </a>
+                <a href="{% url 'products:category' %}" class="mt-2 text-base  text-white md:mt-3 ">
                     <i class="fa-solid fa-caret-right mr-2 text-secondary"></i>Products
-                </p>
+                </a>
                 <p class="mt-2 text-base  text-white md:mt-3 ">
                     <i class="fa-solid fa-caret-right mr-2 text-secondary"></i>Services
                 </p>
                 <p class="mt-2 text-base  text-white md:mt-3 ">
                     <i class="fa-solid fa-caret-right mr-2 text-secondary"></i>Blogs
                 </p>
-                <p class="mt-2 text-base  text-white md:mt-3 ">
+                <a href="{% url 'contact:contact' %}" class="mt-2 text-base  text-white md:mt-3 ">
                     <i class="fa-solid fa-caret-right mr-2 text-secondary"></i>Contact
-                </p>
+                </a>
             </div>
             <div class="w-full  flex flex-col font-medium">
                 <p class=" text-base  text-white  ">

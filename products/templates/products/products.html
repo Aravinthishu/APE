@@ -13,7 +13,7 @@
 </section>
 
 <section class="px-4 md:px-4 2xl:px-0 mt-20 font-body">
-  <div class="font-sans tracking-wide flex flex-col-reverse lg:flex-col gap-8 max-w-screen-xl mx-auto">
+  <div class="font-sans tracking-wide flex flex-col lg:flex-col gap-8 max-w-screen-xl mx-auto">
 
       <!-- First Row (Product Details & Variants) -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -82,30 +82,30 @@
       </div>
 
       <!-- Second Row (Tabs) -->
-      <div>
+      <div class="w-full">
           <!-- Tabs Navigation -->
           <ul class="flex border-b">
-              <li class="text-gray-800 font-bold text-sm bg-gray-100 py-3 px-8 border-b-2 border-gray-800 cursor-pointer transition-all" id="tab-introduction">
+              <li class="text-gray-800 font-bold text-xs md:text-sm bg-gray-100 py-3 px-2 md:px-8 border-b-2 border-gray-800 cursor-pointer transition-all" id="tab-introduction">
                   Introduction
               </li>
-              <li class="text-gray-600 font-bold text-sm hover:bg-gray-100 py-3 px-8 cursor-pointer transition-all" id="tab-datasheet">
+              <li class="text-gray-600 font-bold text-xs md:text-sm hover:bg-gray-100 py-3 px-2 md:px-8 cursor-pointer transition-all" id="tab-datasheet">
                 Data Sheet
             </li>
-              <li class="text-gray-600 font-bold text-sm hover:bg-gray-100 py-3 px-8 cursor-pointer transition-all" id="tab-advantages">
+              <li class="text-gray-600 font-bold text-xs md:text-sm hover:bg-gray-100 py-3 px-2 md:px-8 cursor-pointer transition-all" id="tab-advantages">
                   Advantages
               </li>
-              <li class="text-gray-600 font-bold text-sm hover:bg-gray-100 py-3 px-8 cursor-pointer transition-all" id="tab-applications">
+              <li class="text-gray-600 font-bold text-xs md:text-sm hover:bg-gray-100 py-3 px-2 md:px-8 cursor-pointer transition-all" id="tab-applications">
                   Applications
               </li>
           </ul>
 
           <!-- Tabs Content -->
-          <div class="mt-8">
+          <div class="mt-8 overflow-scroll">
               <div class="tab-content" id="content-introduction">
                   <div>{{ product.introduction | safe }}</div>
               </div>
-              <div class="tab-content hidden" id="content-datasheet">
-                <div>{{ product.data_sheet | safe }}</div>
+              <div class="tab-content  hidden" id="content-datasheet">
+                <div >{{ product.data_sheet | safe }}</div>
             </div>
               <div class="tab-content hidden" id="content-advantages">
                   <div>{{ product.advantages | safe }}</div>
@@ -120,26 +120,10 @@
 
 
 <section class="font-title px-4 py-10 mt-20 md:px-4 2xl:px-0 bg-[#F4F5F9]">
-  <div class="max-w-screen-xl mx-auto relativeoverflow-hidden mt-10">
+  <div class="max-w-screen-xl mx-auto relative overflow-hidden mt-10">
     <div class="grid md:grid-cols-2 gap-8 py-8 px-6">
-      <div class=" relative flex justify-center items-center testimonial-circle zoom-in">
-        <!-- Spinning border div -->
-        <div class="rounded-full border-2 w-full h-full border-dashed spinning-circle border-secondary animat-spin p-12">
-            <!-- Inner content that doesn't spin -->
-            <div class="rounded-full w-full h-full relative p-12 bg-blue-100">
-                <div class="rounded-full w-6 h-6 md:w-8 md:h-8 md:first-line:h-8 absolute top-2 md:top-7 bg-[#FF474A]">
-
-                </div>
-                <div class="rounded-full w-6 h-6 md:w-8 md:h-8 absolute bottom-2 md:bottom-7 bg-[#F1C514]">
-
-                </div>
-
-            </div>
+        <div class="">
         </div>
-        <div class="rounded-full w-40 h-40 md:w-60 md:h-60 bg-no-repeat bg-cover bg-center absolute"
-        style="background-image: url('{% static 'images/contact-woman.jpg' %}')">
-        </div>
-      </div>
 
       <form class="rounded-tl-3xl rounded-bl-3xl max-md:-order-1">
         <div class="max-w-md mx-auto space-y-3 relative">
