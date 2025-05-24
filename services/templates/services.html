@@ -2,6 +2,12 @@
 {% load static %}
 {% block title %}Services{% endblock %}
 {% block content %}
+
+<style>
+
+</style>
+
+
 <section class="font-title px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0 bg-cover bg-no-repeat w-full h-60 md:h-72 lg:h-80" style="background-image: url({% static 'images/service.png' %});">
     <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3 text-center md:text-left">
         <h3 class="text-white font-medium text-xs md:text-sm uppercase">/ Services</h3>
@@ -14,8 +20,15 @@
             <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary font-semibold mb-5">
                 We Give the Best Services
                     </h2>
-            <p class="text-sm md:text-base leading-relaxed">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text since the 1500s...
+                <p class="text-body font-medium text-base leading-loose">
+                At [Your Company Name], we specialize in delivering exceptional power engineering solutions tailored to meet the unique requirements of industries and households. With a focus on 
+                reliability and efficiency, our services are designed to ensure seamless performance and cost-effectiveness.Our team of experts utilizes advanced technologies and proven 
+                methods to provide innovative solutions. From system design to maintenance, we are committed to delivering results that exceed expectations while maintaining the highest standards 
+                of quality and safety.
+            </p>
+            <p class="text-body font-medium text-base mt-4 leading-loose">
+                At [Your Company Name], we are committed to delivering exceptional service quality in every project we undertake. Our team adheres to the highest industry standards, ensuring that all solutions are executed with precision, 
+                efficiency, and reliability.
             </p>
             <div class="flex flex-col md:flex-row gap-4 mt-6">
                 <img src="{% static 'images/service2.png' %}" alt="Service Image 1" class="w-full md:w-1/2 rounded-lg shadow-md">
@@ -26,12 +39,13 @@
             <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary font-semibold mb-5">
                 Service Quality
             </h2>
-            <p class="text-sm md:text-base leading-relaxed">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+            <p class="text-body font-medium text-base leading-loose">
+                At [Your Company Name], we provide innovative and efficient power engineering solutions for industries and households. Leveraging advanced technologies and proven expertise, we deliver reliable, cost-effective services tailored to meet diverse energy needs while maintaining the highest standards of 
+                quality and safety.
             </p>
             <div class="flex flex-col md:flex-row gap-6 mt-6">
                 <img src="{% static 'images/page-title.jpg' %}" alt="Quality Image" class="w-full md:w-1/2 rounded-lg shadow-md">
-                <ul class="w-full  space-y-3">
+                <ul class="w-full text-body font-medium text-base leading-loose  space-y-3">
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> High Standards generational income</li>
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> Expert Team in career terms</li>
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-orange-500"></i> Customer Satisfaction in all forms</li>
@@ -39,18 +53,27 @@
                 </ul>
             </div>
         </div>
-        {% for feature in features %}         
-        <div class="flex flex-row w-1/2 gap-2">
+    </div>
+</section>
+
+<section class="font-title mt-20 px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-0">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2  ">
+        {% for feature in features %}
+        <div class="service-card flex flex-col md:flex-row">
             <div class="w-full md:w-1/2">
-            <img src="{{feature.image.url}}" alt="Quality Image" class="w-full  rounded-lg shadow-md">
+                <img src="{{ feature.image.url }}" alt="Quality Image" class="w-full h-full bg-cover">
             </div>
-            <div class="flex flex-col gap-2 w-1/2 p-7 bg-slate-100">             
-                <div class="flex flex-row justify-between "><img src="{{feature.image_icon.url}}" alt="Quality Image" class=" w-16 h-16 "><p>{{feature.id}}</p></div>
-                <h4 class="text-xl text-secondary font-semibold">{{feature.title}}</h4>
-                <p class="text-sm md:text-base leading-relaxed">{{feature.long_desc |safe}}</p>               
+            <div class="flex flex-col gap-2 w-full md:w-1/2 p-7 bg-slate-100">
+                <div class="flex flex-row justify-between">
+                    <img src="{{ feature.image_icon.url }}" alt="Feature Icon" class="w-16 h-16">
+                    <p class="font-extrabold text-white text-5xl text-border">0{{ forloop.counter }}</p>
+                </div>
+                <h4 class="text-xl text-secondary font-semibold">{{ feature.title }}</h4>
+                <div class="text-sm md:text-base font-medium text-body leading-relaxed">{{ feature.long_desc | safe }}</div>
             </div>
         </div>
         {% endfor %}
     </div>
+    
 </section>
 {% endblock %}

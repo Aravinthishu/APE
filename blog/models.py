@@ -7,7 +7,7 @@ from django.utils.text import slugify
 class Posts(models.Model):
 
      title=models.CharField(max_length=200 ,)
-     slug=models.SlugField(null=True,blank=True, unique=True , allow_unicode=True)
+     slug=models.SlugField(null=True,blank=True, unique=True , allow_unicode=True, max_length=200)
      image=models.ImageField(upload_to='blog/')
      short_desc=models.TextField(max_length=200, blank=True,null=True)
      long_desc=RichTextField() 

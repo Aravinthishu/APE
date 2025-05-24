@@ -11,50 +11,66 @@
     </div>
 </section>
 
+<section class="font-title bg-gray-100 h-[450px] px-4 md:px-4 2xl:px-0">
+    <div class="max-w-screen-xl mx-auto flex items-center h-full">
+        <div class="grid grid-cols-1 w-full md:grid-cols-3 gap-10 ">
+
+            <div class="bg-white shadow-md w-full p-6 h-56 relative transition-all duration-1000 group contact-box flex flex-col justify-center items-center gap-4">
+                <div class=" absolute right-[34%] rotate-45 -top-16 rounded-full  w-32 h-32 flex items-center justify-center box-icon "> </div>
+                    <div class=" absolute right-[40%] rotate-45 -top-10 w-20 h-20 flex items-center justify-center bg-secondary icon-box rounded-3xl">
+                        <i class='fa fa-comments text-4xl text-white rotate-[-45deg] contact-icon '></i>
+                    </div>
+               
+                <h4 class="text-xl font-medium text-center">
+                    Give us a call
+                </h4>
+                <p class="text-base font-body font-medium text-center">
+                     {{brand.phone}}
+                    </p>
+            </div>
+
+
+            <div class="bg-white shadow-md w-full p-6 h-56 relative transition-all duration-1000 group contact-box flex flex-col justify-center items-center gap-4">
+                <div class=" absolute right-[34%] rotate-45 -top-16 rounded-full  w-32 h-32 flex items-center justify-center box-icon "> </div>
+                    <div class=" absolute right-[40%] rotate-45 -top-10 w-20 h-20 flex items-center justify-center bg-secondary icon-box rounded-3xl">
+                        <i class='fa-solid fa-envelope text-4xl text-white rotate-[-45deg] contact-icon '></i>
+                    </div>
+               
+                <h4 class="text-xl font-medium text-center">
+                    Email Us
+                </h4>
+                <p class="text-base font-body font-medium text-center">
+                     {{brand.email}}
+                    </p>
+            </div>
+
+            <div class="bg-white shadow-md w-full p-6 h-56 relative transition-all duration-1000 group contact-box flex flex-col justify-center items-center gap-4">
+                <div class=" absolute right-[34%] rotate-45 -top-16 rounded-full  w-32 h-32 flex items-center justify-center box-icon "> </div>
+                    <div class=" absolute right-[40%] rotate-45 -top-10 w-20 h-20 flex items-center justify-center bg-secondary icon-box rounded-3xl">
+                        <i class='fa-solid fa-map-marker-alt text-4xl text-white rotate-[-45deg] contact-icon '></i>
+                    </div>
+               
+                <h4 class="text-xl font-medium text-center">
+                    VISIT US
+                </h4>
+                <p class="text-base font-body font-medium text-center">
+                     {{brand.address}}
+                    </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 <section class="font-title mt-20 px-4 md:px-4 2xl:px-0 relative">
     <div class="max-w-screen-xl mx-auto h-full flex flex-col md:flex-row gap-6">
-        <div class="w-full md:w-1/2">
-            <div>
-                <h4 class="text-xl text-secondary font-semibold slide-left">Contact Us</h4>
-                <h2 class="text-3xl mt-3 text-primary font-semibold md:text-3xl lg:text-4xl xl:text-5xl">Get In Touch With US</h2>
-                <p class="text-body font-medium text-base leading-loose mt-4">
-                    Reach out for any inquiries, support, or to discuss how we can meet your industrial needs.
-                </p>
-            </div>
-            <div class="flex flex-row gap-6 items-center mt-10">
-                <div class="p-4 w-12 h-12 flex items-center justify-center bg-secondary rounded-lg">
-                    <i class="fas fa-phone text-white"></i>
-                </div>
-                <div class="flex flex-col">
-                    <h4 class="text-xl text-secondary font-semibold">Contact</h4>
-                    <p class="text-body font-medium text-base leading-loose gap-3">{{brand.phone}}</p>
-                </div>
-            </div>
-            <hr class="mt-10"/>
-            <div class="flex flex-row gap-6 items-center mt-10">
-                <div class="p-4 w-12 h-12 flex items-center justify-center bg-secondary rounded-lg">
-                    <i class="fa-solid fa-envelope text-white"></i>
-                </div>
-                <div class="flex flex-col">
-                    <h4 class="text-xl text-secondary font-semibold">Email</h4>
-                    <p class="text-body font-medium text-base leading-loose gap-3">{{brand.email}}</p>
-                </div>
-            </div>
-            <hr class="mt-10"/>
-            <div class="flex flex-row gap-6 items-center mt-10">
-                <div class="p-4 w-12 h-12 flex items-center justify-center bg-secondary rounded-lg">
-                    <i class="fa-solid fa-location-dot text-white"></i>
-                </div>
-                <div class="flex flex-col">
-                    <h4 class="text-xl text-secondary font-semibold">Address</h4>
-                    <p class="text-body font-medium text-base leading-loose gap-3">{{brand.address}}</p>
-                </div>
-            </div>
-        </div>
-
         <div class="w-full md:w-1/2 relative z-20">
             <div class="my-6 mx-auto max-w-xl bg-white p-6 border border-gray-200 rounded-lg shadow-lg">
-                <h1 class="text-2xl text-secondary font-bold text-center">Write a Message</h1>
+                <h1 class="text-2xl text-primary font-bold">Leave A Message</h1>
+                <p class="text-base font-body font-medium mt-5 ">
+                    If you are interested in our products and want to know more details,please leave a message here,we will reply you as soon as we can.
+                   </p>
                 <form class="mt-8 space-y-6">
                   <div>
                     <label class="text-gray-800 text-sm font-medium block mb-2">Your Name</label>
@@ -67,8 +83,8 @@
                       class="w-full rounded-md py-2.5 px-4 border text-sm font-medium outline-secondary" />
                   </div>
                   <div>
-                    <label class="text-gray-800 text-sm font-medium block mb-2">Subject</label>
-                    <input type='text' placeholder='Subject'
+                    <label class="text-gray-800 text-sm font-medium block mb-2">Your Phone</label>
+                    <input type='text' placeholder='Phone'
                       class="w-full rounded-md py-2.5 px-4 border text-sm font-medium outline-secondary" />
                   </div>
                   <div>
@@ -77,12 +93,27 @@
                       class="w-full rounded-md px-4 border text-sm font-medium pt-2.5 outline-secondary"></textarea>
                   </div>
                   <button type='button'
-                    class="text-white bg-primary hover:bg-secondary rounded-md text-sm font-medium px-4 py-2.5 w-max min-w-[150px] mx-auto block">Send</button>
+                    class="text-white bg-primary hover:bg-secondary text-lg rounded-md  font-medium flex items-center justify-center px-4 py-3 w-[200px]">Submit<i class='text-xl mx-2 fab fa-telegram-plane'></i></button>
                 </form>
               </div>
         </div>
+        <div class="w-full md:w-1/2">
+            <div>
+                <h2 class="text-3xl mt-3 text-primary font-semibold md:text-3xl ">Get In Touch With US</h2>
+                <p class="text-body font-medium text-base leading-loose mt-4">
+                    Find the best way to get help and connect with YT. Fill out a short form or get tips to fix some of the most common issues right from your computer.
+                    If you still need more help, see the contact information for technical support, order support, and more.
+                </p>
+            </div>
+        </div>
+
     </div>
     <img class="w-auto absolute -bottom-20 z-0 left-0 opacity-50" src="{% static 'images/shape.png' %}" alt="shape">
+</section>
+
+<section class="font-title mt-20 px-4 md:px-4 2xl:px-0 relative h-[470px]">
+    <iframe src="{{brand.googlemap_url}}"
+    width="100%" height="470px" class="mt-3 rounded-md" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
 {% endblock %}

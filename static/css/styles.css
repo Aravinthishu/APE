@@ -208,3 +208,67 @@ table th {
         width: 330px;
     }
 }
+
+/* Contact */
+
+.icon-box{
+    transition: all 0.5s ease-in-out;
+}
+
+.contact-icon{
+    transition: all 0.5s ease-in-out;
+}
+
+.box-icon{
+    transition: all 0.5s ease-in-out;
+    scale:0;
+}
+
+.contact-box:hover .icon-box{
+    border-radius: 100%;
+}
+
+.contact-box:hover .box-icon{
+    border: 1px solid #CBCBCB;
+    scale: 1;
+}
+
+
+
+
+/* services */
+
+.service-card {
+    display: flex;
+
+}
+
+.service-card:nth-child(3),
+.service-card:nth-child(4),
+.service-card:nth-child(7),
+.service-card:nth-child(8) {
+    flex-direction: row-reverse;
+}
+.text-border {
+    color: white; /* Hide original text color */
+    -webkit-text-stroke: 1px #CBCBCB; /* Border thickness and color */
+}
+
+
+/* Responsive table styling */
+@media screen and (max-width: 600px) {
+    .service-card:nth-child(3),
+    .service-card:nth-child(4),
+    .service-card:nth-child(7),
+    .service-card:nth-child(8) {
+        flex-direction: column;
+    }
+}
+
+
+/* Blog */
+
+p{
+    color:#4E4E4E;
+    font-weight:500;
+}

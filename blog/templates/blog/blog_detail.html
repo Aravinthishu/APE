@@ -3,6 +3,9 @@
 {% block title %}{{ posts.title }}
 {% endblock %}
 {% block content %}
+<style>
+
+</style>
 <section class="font-title px-4 md:px-4 2xl:px-0 bg-cover bg-no-repeat w-full h-80" 
          style="background-image: url({% static 'images/page-title.jpg' %});">
     <div class="max-w-screen-xl mx-auto h-full flex flex-col justify-center gap-3">
@@ -19,7 +22,7 @@
             </div>
             <div class="mt-10">
                 <h1 class="text-3xl font-bold mb-5">{{ posts.title }}</h1>
-                <div class="bg-white rounded-lg shadow-md p-6 leading-relaxed">
+                <div class="bg-white blog_details leading-relaxed">
                     {{ posts.long_desc | safe }}
                 </div>
             </div>
